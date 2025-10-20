@@ -7,13 +7,16 @@ public class Main {
         // Ejercicio 1.
 
         Scanner sc = new Scanner(System.in);
-        double [] numeros = new double[10];
+        double[] numeros = new double[10];
 
         System.out.println("Introduce 10 números reales:");
         for (int i = 0; i < numeros.length; i++) {
             System.out.println("Número: " + (i + 1) + ": ");
             numeros[i] = sc.nextDouble();
         }
+
+        /* System.out.println(Arrays.toString(numerosReales)); <-Esto hace lo mismo */
+
 
         System.out.println("Los números introducidos son:");
         for (int i = 0; i < numeros.length; i++) {
@@ -41,29 +44,23 @@ public class Main {
         // Ejercicio 3.
 
         new Scanner(System.in);
-        double[] numeros3 = new double[10];
+        double[] numerosReales = new double[10];
+
+        double max = Double.MIN_VALUE;
+        double min = Double.MAX_VALUE;
 
         System.out.println("Introduce 10 números reales:");
-        for (int i = 0; i < numeros.length; i++) {
+        for (int i = 0; i < numerosReales.length; i++) {
             System.out.print("Número " + (i + 1) + ": ");
-            numeros[i] = sc.nextDouble();
+            numerosReales[i] = sc.nextDouble();
 
         }
-
-        double max = numeros[0];
-        double min = numeros[0];
 
         for (int i = 1; i < numeros.length; i++) {
-            if (numeros[1] > max) {
-                max = numeros[1];
-            }
-            if (numeros[1] < min) {
-                min = numeros[1];
-            }
-        }
+            max = Math.max(numerosReales[i], max);
+            min = Math.min(numerosReales[i], min);
 
-        System.out.println("El número máximo es: " + max);
-        System.out.println("El número mínimo es: " + max);
+        }
 
         // Ejercicio 4.
 
@@ -79,7 +76,7 @@ public class Main {
 
             if (numeros[1] > 0) {
                 sumaPositivos += numeros[i];
-            }else if (numeros[i] < 0) {
+            } else if (numeros[i] < 0) {
                 sumaNegativos += numeros[i];
             }
 
@@ -125,7 +122,7 @@ public class Main {
             System.out.print(array[i] + " ");
         }
 
-        //Ejercicio 7.prueba de sourcetree
+        //Ejercicio 7.
 
         new Scanner(System.in);
         System.out.print("Introduce el tamaño del array (P): ");
@@ -133,6 +130,96 @@ public class Main {
 
         System.out.print("Introduce el valor a colocar en cada posición (Q): ");
         int Q = sc.nextInt();
+
+        int tamanho = Math.abs(Q - P) + 1;
+        int[] array2 = new int[tamanho];
+
+        if (P <= Q) {
+            for (int i = 0; i < tamanho; i++) {
+                array[i] = P + i;
+            }
+
+        }else {
+            for (int i = 0; i < tamanho; i++) {
+                array[i] = P + i;
+            }
+        }
+     System.out.print("El arreglo generado es: [");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
+                System.out.print(", ");
+            }
+        }
+
+        System.out.println("]");
+
+        //Ejercicio 8.
+
+        sc = new Scanner(System.in);
+        double [] numeros3 = new double [100];
+        for(int i = 0; i < numeros3.length; i++) {
+            numeros3 [i] = Math.random();
+        }
+
+        System.out.println("Introduce el valor de R (entre 0 y 1)");
+        double r = sc.nextDouble();
+        int contadorMayores = 0, contadorMenores = 0;
+        for(int i = 0; i < numeros3.length; i++) {
+            if(numeros3 [i] >= r) {
+                contadorMayores++;
+            }
+
+            else {
+                contadorMenores++;
+            }
+        }
+
+        System.out.println("Los numeros mayores que r son; " + contadorMayores);
+        System.out.println("Los numeros menores que r son; " + contadorMenores);
+
+        //Ejercicio 9.
+
+        sc = new Scanner(System.in);
+        int [] numeros6 = new int [100];
+
+        for(int i = 0; i < numeros6.length; i++) {
+            numeros6 [i] = (int) (Math.random() * 10 + 1);
+        }
+        System.out.println("Introduce el valor de N");
+        int nBuscar = sc.nextInt();
+
+        for(int i = 0; i < numeros6.length; i++) {
+            if(numeros6[i] == nBuscar) {
+                System.out.println("Aparece en la posición; " + i);
+            }
+        }
+
+        //Ejercicio 10.
+
+        sc = new Scanner(System.in);
+        System.out.println("Introduce el valor de N");
+        int nAlturas = sc.nextInt();
+        double [] alturas = new double [nAlturas];
+        double sumaAlturas= 0.0, mediaAlturas = 0.0, maximaAlturas = Double
+        for(int i = 0; i < alturas.length; i++) {
+            System.out.println("Introduce el valor de la alturas " + (i + 1) + ": ");
+            alturas[i] = sc.nextDouble();
+
+            int contadorAlturas = 0;
+            for(int i = 0; i < alturas.length; i++) {
+
+                maximaAlturas = Math.max(alturas[i], maximaAlturas);
+                maximaAlturas = Math.min(alturas[i], maximaAlturas);
+
+                if(alturas[i] >= mediaAlturas) {
+                    contadorAlturas++;
+                }
+
+                System.out.println("La media es: " + mediaAlturas);
+            }
+        }
+
 
         
     }
