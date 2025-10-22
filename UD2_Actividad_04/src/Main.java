@@ -197,30 +197,130 @@ public class Main {
 
         //Ejercicio 10.
 
+
+        //Ejercicio 11.
+
         sc = new Scanner(System.in);
-        System.out.println("Introduce el valor de N");
-        int nAlturas = sc.nextInt();
-        double [] alturas = new double [nAlturas];
-        double sumaAlturas= 0.0, mediaAlturas = 0.0, maximaAlturas = Double
-        for(int i = 0; i < alturas.length; i++) {
-            System.out.println("Introduce el valor de la alturas " + (i + 1) + ": ");
-            alturas[i] = sc.nextDouble();
+        int[] array9 = new int[100];
+        int[] array10 = new int[100];
 
-            int contadorAlturas = 0;
-            for(int i = 0; i < alturas.length; i++) {
+        for (int i = 0; i < 100; i++) {
+            array9[i] = i +1;
+        }
 
-                maximaAlturas = Math.max(alturas[i], maximaAlturas);
-                maximaAlturas = Math.min(alturas[i], maximaAlturas);
+        for (int i = 0; i < 100; i++) {
+            array10[i] = array9[99-1];
+        }
 
-                if(alturas[i] >= mediaAlturas) {
-                    contadorAlturas++;
+        System.out.println("Array 9 (1 al 100);");
+        for (int i = 0; i < 100; i++) {
+            System.out.println(array[i] + " ");
+        }
+
+        System.out.println("\n\nArray 10 (orden inverso):");
+
+        for (int i = 0; i < 100; i++) {
+            System.out.println(array10[i] + " ");
+        }
+
+        //Ejercicio 12.
+
+        new Scanner(System.in);
+        int[] numeros14 = new int[10];
+        boolean salir = false;
+
+        while (!salir) {
+            System.out.println("\n===== MENÚ =====");
+            System.out.println("a. Mostrar valores");
+            System.out.println("b. Introducir valor");
+            System.out.println("c. Salir");
+            System.out.print("Elige una opción: ");
+
+            String opcion = sc.nextLine();
+
+            switch (opcion.toLowerCase()) {
+                case "a":
+                    System.out.println("\nValores actuales del array:");
+                    for (int i = 0; i < numeros14.length; i++) {
+                        System.out.println("Posición " + i + ": " + numeros14[i]);
+                    }
+                    break;
+
+                    case "b":
+                        System.out.print("Introduce un valor entero: ");
+                        int valor = sc.nextInt();
+
+                        System.out.print("Introduce una posición (0-9): ");
+                        int posicion = sc.nextInt();
+
+                           sc.nextLine();
+
+                           if (posicion >= 0 && posicion < numeros14.length) {
+                                numeros14[posicion] = valor;
+                                System.out.println("Valor introducido correctamente.");
+                           } else {
+                                System.out.println("⚠Posición no válida. Debe estar entre 0 y 9.");}
+                           break;
+
+                           case "c":
+                            System.out.println("Saliendo del programa...");
+                            salir = true;
+                            break;
+
+                        default:
+                            System.out.println("Opción no válida. Intenta de nuevo.");
+                    }
                 }
+        //Ejercicio 13.
 
-                System.out.println("La media es: " + mediaAlturas);
+        new Scanner(System.in);
+
+        System.out.print("Introduce el valor inicial (V): ");
+        int V = sc.nextInt();
+
+        System.out.print("Introduce el incremento (I): ");
+        int I = sc.nextInt();
+
+        System.out.print("Introduce la cantidad de valores (N): ");
+        int N1 = sc.nextInt();
+
+        int[] secuencia = new int[N1];
+
+        for (int i = 0; i < N1; i++) {
+            secuencia[i] = V + (I * i);
+        }
+
+        System.out.println("\nLa secuencia aritmética generada es:");
+        for (int i = 0; i < N1; i++) {
+            System.out.print(secuencia[i]);
+            if (i < N1 - 1) {
+                System.out.print(", ");
             }
         }
 
+        //Ejercicio 14.
 
+        int tamanho2 = 0;
+        for (int i = 1; i <= 10; i++) {
+            tamanho2 += i;
+        }
+
+        int[] secuencia2 = new int[tamanho2];
+        int indice = 0;
+
+        for (int i = 1; i <= 10; i++) {
+            for (int j = 1; j <= i; j++) {
+                secuencia2[indice] = i;
+                indice++;
+            }
+        }
         
+        System.out.println("Secuencia generada:");
+        for (int i = 0; i < secuencia2.length; i++) {
+            System.out.print(secuencia2[i] + " ");
+        }
+
+
     }
 }
+
