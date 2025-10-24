@@ -314,7 +314,7 @@ public class Main {
                 indice++;
             }
         }
-        
+
         System.out.println("Secuencia generada:");
         for (int i = 0; i < secuencia2.length; i++) {
             System.out.print(secuencia2[i] + " ");
